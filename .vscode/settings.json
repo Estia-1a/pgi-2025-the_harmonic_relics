@@ -11,6 +11,10 @@
         "cwd": "${workspaceFolder}"
     },
     "files.associations": {
-        "unistd.h": "c"
+        "unistd.h": "c",
+        "features.h": "c",
+        "utils.h": "c",
+        "getopt.h": "c",
+        "estia-image.h": "c"
     },
 }
