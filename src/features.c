@@ -32,3 +32,13 @@ void first_pixel (char *source_path){
     B=data[2];
     printf("first_pixel: %d, %d, %d\n", R, G, B);
 }
+
+void second_line(char *source_path){
+    int pixel2;
+    int read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *nbChannels);
+    int write_image_data(const char *filename, unsigned char *data, int width, int height);
+    pixelRGB* pixel2 = getPixel(2, 0);
+
+    printf("second_line: %d\n", pixel2);
+}
+
