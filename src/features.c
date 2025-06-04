@@ -33,6 +33,18 @@ void first_pixel (char *source_path){
     printf("first_pixel: %d, %d, %d\n", R, G, B);
 }
 
+void tenth_pixel (char *source_path){
+    int R,G,B;
+    int width,height,channel_count;
+    unsigned char *data;
+    read_image_data(source_path, &data, &width, &height, &channel_count);
+    R=data[27];
+    G=data[28];
+    B=data[29];
+    printf("tenth_pixel: %d, %d, %d\n", R, G, B);
+
+}
+
 void second_line(char *source_path){
     int pixel2;
     int read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *nbChannels);
