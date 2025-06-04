@@ -46,11 +46,19 @@ void tenth_pixel (char *source_path){
 }
 
 void second_line(char *source_path){
-    int pixel2;
-    int read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *nbChannels);
-    int write_image_data(const char *filename, unsigned char *data, int width, int height);
-    pixelRGB* pixel2 = getPixel(2, 0);
+    int R, G, B;
+    int width,height,channel_count;
+    unsigned char *data;
+    read_image_data(source_path, &data, &width, &height, &channel_count);
+    write_image_data(source_path, &data, &width, &height);
+    R = data[3 * width];
+    G = data[3 * width + 1];
+    B = data[3 * width + 2];
 
-    printf("second_line: %d\n", pixel2);
+    printf("second_line: %d, %d, %d\n", R, G, B);
 }
 
+void color_red(const char *filename){
+    int write_image_data(const char *filename, unsigned char *data, int width, int height);
+    
+}
