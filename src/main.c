@@ -47,9 +47,7 @@ int main(int argc, char **argv) {
     /* first_pixel() function is defined in feature.h and implemented in feature.c */
     first_pixel(configuration.filenames[0]);
   }
-  /*
-   * TO COMPLETE
-   */
+  
   
   return 0;
 }
