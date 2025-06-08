@@ -33,24 +33,24 @@ void first_pixel (char *source_path){
     printf("first_pixel: %d, %d, %d\n", R, G, B);
 }
 
-    
-/*void max_pixel(Image *img) {
-    int max_sum = -1;
-    int max_x = 0, max_y = 0;
+void tenth_pixel (char *source_path){
+    int R,G,B;
+    int width,height,channel_count;
+    unsigned char *data;
+    read_image_data(source_path, &data, &width, &height, &channel_count);
+    R=data[27];
+    G=data[28];
+    B=data[29];
+    printf("tenth_pixel: %d, %d, %d\n", R, G, B);
 
-    for (int y = 0; y < img->height; y++) {
-        for (int x = 0; x < img->width; x++) {
-            pixelRGB px = img->pixels[y * img->width + x];
-            int sum = px.r + px.g + px.b;
+}
 
-            if (sum > max_sum) {
-                max_sum = sum;
-                max_x = x;
-                max_y = y;
-            }
-        }
-    }
+void second_line(char *source_path){
+    int pixel2;
+    int read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *nbChannels);
+    int write_image_data(const char *filename, unsigned char *data, int width, int height);
+    pixelRGB* pixel2 = getPixel(2, 0);
 
-    pixelRGB result = img->pixels[max_y * img->width + max_x];
-    printf("max_pixel (%d, %d): %d, %d, %d\n", max_x, max_y, result.r, result.g, result.b);
-}*/
+    printf("second_line: %d\n", pixel2);
+}
+
