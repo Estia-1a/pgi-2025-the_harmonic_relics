@@ -33,10 +33,8 @@ void first_pixel (char *source_path){
     printf("first_pixel: %d, %d, %d\n", R, G, B);
 }
 
-    #include <stdio.h>
-    #include "estia-image.h"
-
-void max_pixel(Image *img) {
+    
+/*void max_pixel(Image *img) {
     int max_sum = -1;
     int max_x = 0, max_y = 0;
 
@@ -55,4 +53,4 @@ void max_pixel(Image *img) {
 
     pixelRGB result = img->pixels[max_y * img->width + max_x];
     printf("max_pixel (%d, %d): %d, %d, %d\n", max_x, max_y, result.r, result.g, result.b);
-}
+}*/
