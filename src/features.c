@@ -158,9 +158,6 @@ void mirror_total(char *source_path) {
     free(mirrored);
 }
 
-
-
-
 void second_line(char *source_path){
     int R, G, B;
     int width,height,channel_count;
