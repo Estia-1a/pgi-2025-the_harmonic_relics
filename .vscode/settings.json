@@ -17,4 +17,5 @@
         "getopt.h": "c",
         "estia-image.h": "c"
     },
+    "C_Cpp.errorSquiggles": "disabled",
 }

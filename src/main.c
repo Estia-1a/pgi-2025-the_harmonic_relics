@@ -37,6 +37,19 @@ int main(int argc, char **argv) {
   {
     tenth_pixel(configuration.filenames[0]);
   }
+if ( strncmp( configuration.command, "rotate_cw", 9 ) == 0 ) {
+    /* rotate_cw function is defined in feature.h and implemented in feature.c */
+    rotate_cw(configuration.filenames[0]);
+  }
+  if ( strncmp( configuration.command, "rotate_acw", 10 ) == 0 ) {
+    /* rotate_acw function is defined in feature.h and implemented in feature.c */
+    rotate_cw(configuration.filenames[0]);
+  }
+  if (strncmp(configuration.command, "mirror_total", 12) == 0) {
+     /* mirror_total function is defined in feature.h and implemented in feature.c */
+    mirror_total(configuration.filenames[0]);
+}
+ 
   if ( strncmp( configuration.command, "second_line", 11 ) == 0 ) {
     second_line(configuration.filenames[0]);
   }
