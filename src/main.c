@@ -43,6 +43,11 @@ int main(int argc, char **argv) {
     /* tenth_pixel() function is defined in feature.h and implemented in feature.c */
     tenth_pixel(configuration.filenames[0]);
   }
+if ( strncmp( configuration.command, "rotate_cw", 11 ) == 0 ) {
+    /* tenth_pixel() function is defined in feature.h and implemented in feature.c */
+    rotate_cw(configuration.filenames[0]);
+  }
+ 
   /*
    * TO COMPLETE
    */
