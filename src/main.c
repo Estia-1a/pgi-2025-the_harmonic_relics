@@ -61,5 +61,10 @@ int main(int argc, char **argv) {
 
     max_pixel(&img);
 
+if (strcmp(command, "min_pixel") == 0) 
+{
+    min_pixel(&img);
+}
+
   return 0;
 }
