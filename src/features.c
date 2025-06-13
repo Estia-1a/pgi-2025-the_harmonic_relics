@@ -158,8 +158,41 @@ void mirror_total(char *source_path) {
     free(mirrored);
 }
 
+void mirror_horizontal(char *source_path) {
+    int width, height, channel_count;
+    unsigned char *data;
 
+    if (read_image_data(source_path, &data, &width, &height, &channel_count) == 0) {
+        printf("Erreur : lecture de l'image echouee\n");
+        return;
+    }
 
+    unsigned char *mirrored = malloc(width * height * channel_count);
+    if (!mirrored) {
+        printf("Erreur d'allocation memoire\n");
+        free(data);
+        return;
+    }
+
+    for (int y = 0; y < height; y++) {
+        for (int x = 0; x < width; x++) {
+            for (int c = 0; c < channel_count; c++) {
+                int src_index = (y * width + x) * channel_count + c;
+                int dst_index = (y * width + (width - 1 - x)) * channel_count + c;
+                mirrored[dst_index] = data[src_index];
+            }
+        }
+    }
+
+    if (write_image_data("image_out.bmp", mirrored, width, height) == 0) {
+        printf("Erreur lors de l'ecriture de l'image\n");
+    } else {
+        printf("Image miroir horizontale enregistree sous image_out.bmp\n");
+    }
+
+    free(data);
+    free(mirrored);
+}
 
 
 
