@@ -68,8 +68,10 @@ int main(int argc, char **argv) {
     color_gray(configuration.filenames[0]);
   }
 
-
-
+     if ( strncmp( configuration.command, "color_invert", 12 ) == 0 ) {
+    /* second_line() function is defined in feature.h and implemented in feature.c */
+    color_invert(configuration.filenames[0]);
+  }
 
 
   /*
