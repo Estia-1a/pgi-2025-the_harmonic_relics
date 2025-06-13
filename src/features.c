@@ -127,3 +127,33 @@ void color_blue (char *source_path){
     free(data);
 
 }
+
+void color_gray (char *source_path){
+    int width,height,channel_count,R,G,B;
+    unsigned char *data;
+
+    int result = read_image_data(source_path, &data, &width, &height, &channel_count);
+    if (result == 0) {
+        printf("Erreur lors de la lecture de l-image : %s\n", source_path);
+        return;
+    }
+
+    int i, total_pixels = width * height;
+    for (i = 0; i < total_pixels; i++) {
+    
+         R = data[i * 3 ];
+         G = data[i * 3 + 1];
+         B = data[i * 3 + 2];
+
+         data[i * 3 ] = (R + G + B) / 3 ;
+         data[i * 3 + 1] = (R + G + B) / 3 ;
+         data[i * 3 + 2] = (R + G + B) / 3 ;
+       
+    }
+
+    write_image_data("image_out.bmp", data, width, height);
+
+    free(data);
+
+}
+
