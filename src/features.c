@@ -54,3 +54,26 @@ void second_line(char *source_path){
     printf("second_line: %d\n", pixel2);
 }
 
+void max_pixel(Image *img) {
+    int max_sum = -1;
+    int max_x = 0, max_y = 0;
+
+    for (int y = 0; y < img->height; y++) 
+    {
+        for (int x = 0; x < img->width; x++) 
+        {
+            pixelRGB px = img->pixels[y * img->width + x];
+            int sum = px.r + px.g + px.b;
+
+            if (sum > max_sum) 
+            {
+                max_sum = sum;
+                max_x = x;
+                max_y = y;
+            }
+        }
+    }
+
+    pixelRGB result = img->pixels[max_y * img->width + max_x];
+    printf("max_pixel (%d, %d): %d, %d, %d\n", max_x, max_y, result.r, result.g, result.b);
+}
