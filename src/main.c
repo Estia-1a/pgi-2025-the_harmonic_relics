@@ -31,7 +31,7 @@ int main(int argc, char **argv) {
     /* helloworld() function is defined in feature.h and implemented in feature.c */
     helloWorld();
   }
-  if ( strncmp( configuration.command, "dimension", 10 ) == 0 ) {
+  if ( strncmp( configuration.command, "dimension", 9 ) == 0 ) {
     /* dimension() function is defined in feature.h and implemented in feature.c */
     dimension(configuration.filenames[0]);
   }
@@ -44,9 +44,16 @@ int main(int argc, char **argv) {
     tenth_pixel(configuration.filenames[0]);
   }
   if ( strncmp( configuration.command, "second_line", 11 ) == 0 ) {
-    /* first_pixel() function is defined in feature.h and implemented in feature.c */
-    first_pixel(configuration.filenames[0]);
+    /* second_line() function is defined in feature.h and implemented in feature.c */
+    second_line(configuration.filenames[0]);
   }
+
+  if ( strncmp( configuration.command, "color_red", 9 ) == 0 ) {
+    /* second_line() function is defined in feature.h and implemented in feature.c */
+    color_red(configuration.filenames[0]);
+  }
+
+
   /*
    * TO COMPLETE
    */
