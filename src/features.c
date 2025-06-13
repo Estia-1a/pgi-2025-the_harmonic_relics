@@ -216,3 +216,50 @@ void color_gray_lumi (char *source_path){
     free(data);
 
 }
+void max_pixel(Image *img) 
+{
+    int max_sum = -1;
+    int max_x = 0, max_y = 0;
+
+    for (int y = 0; y < img->height; y++) 
+    {
+        for (int x = 0; x < img->width; x++) 
+        {
+            pixelRGB px = img->pixels[y * img->width + x];
+            int sum = px.r + px.g + px.b;
+
+            if (sum > max_sum) 
+            {
+                max_sum = sum;
+                max_x = x;
+                max_y = y;
+            }
+        }
+    }
+
+    pixelRGB result = img->pixels[max_y * img->width + max_x];
+    printf("max_pixel (%d, %d): %d, %d, %d\n", max_x, max_y, result.r, result.g, result.b);
+}
+void min_pixel(Image *img) {
+    int min_sum = 256 * 3 + 1;
+    int min_x = 0, min_y = 0;
+
+    for (int y = 0; y < img->height; y++) 
+    {
+        for (int x = 0; x < img->width; x++) 
+        {
+            pixelRGB px = img->pixels[y * img->width + x];
+            int sum = px.r + px.g + px.b;
+
+            if (sum < min_sum) 
+            {
+                min_sum = sum;
+                min_x = x;
+                min_y = y;
+            }
+        }
+    }
+
+    pixelRGB result = img->pixels[min_y * img->width + min_x];
+    printf("min_pixel (%d, %d): %d, %d, %d\n", min_x, min_y, result.r, result.g, result.b);
+}

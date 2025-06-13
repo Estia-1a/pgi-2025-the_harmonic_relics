@@ -21,26 +21,20 @@ int main(int argc, char **argv) {
   parse_arguments( argc, argv, &configuration ) ;
   check_debug_mode(configuration);
   check_file();
-  /* END */
-
-  /* Use "if ( strncmp( command, <commandname>, 9 ) == 0 )" to check if your <commandname> is called by program.*/
-  /* Example with helloworld command
-   * If helloworld is a called command: freud.exe -f images/input/image.jpeg -c helloworld 
-   */
-  if ( strncmp( configuration.command, "helloworld", 10 ) == 0 ) {
-    /* helloworld() function is defined in feature.h and implemented in feature.c */
+  if ( strncmp( configuration.command, "helloworld", 10 ) == 0 ) 
+  {
     helloWorld();
   }
   if ( strncmp( configuration.command, "dimension", 9 ) == 0 ) {
     /* dimension() function is defined in feature.h and implemented in feature.c */
     dimension(configuration.filenames[0]);
   }
-  if ( strncmp( configuration.command, "first_pixel", 11 ) == 0 ) {
-    /* first_pixel() function is defined in feature.h and implemented in feature.c */
+  if ( strncmp( configuration.command, "first_pixel", 11 ) == 0 ) 
+  {
     first_pixel(configuration.filenames[0]);
   }
-  if ( strncmp( configuration.command, "tenth_pixel", 11 ) == 0 ) {
-    /* tenth_pixel() function is defined in feature.h and implemented in feature.c */
+  if ( strncmp( configuration.command, "tenth_pixel", 11 ) == 0 ) 
+  {
     tenth_pixel(configuration.filenames[0]);
   }
   if ( strncmp( configuration.command, "second_line", 11 ) == 0 ) {
@@ -79,9 +73,30 @@ int main(int argc, char **argv) {
   }
 
 
-  /*
-   * TO COMPLETE
-   */
-  
+
+  int main(int argc, char *argv[]) 
+  {
+    if (argc < 2) 
+    {
+        printf("Usage: %s <image_file>\n", argv[0]);
+        return 1;
+    }
+
+    const char *filename = argv[1];
+    Image img;
+
+    if (read_image_data(filename, &img) != 0) 
+    {
+        fprintf(stderr, "Erreur de chargement de l'image\n");
+        return 1;
+    }
+
+    max_pixel(&img);
+
+if (strcmp(command, "min_pixel") == 0) 
+{
+    min_pixel(&img);
+}
+
   return 0;
 }
