@@ -1,6 +1,6 @@
 #include <estia-image.h>
 #include <stdio.h>
-
+#include <stdlib.h>
 #include "features.h"
 #include "utils.h"
 
@@ -46,11 +46,173 @@ void tenth_pixel (char *source_path){
 }
 
 void second_line(char *source_path){
-    int pixel2;
-    int read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *nbChannels);
-    int write_image_data(const char *filename, unsigned char *data, int width, int height);
-    pixelRGB* pixel2 = getPixel(2, 0);
+    int R, G, B;
+    int width,height,channel_count;
+    unsigned char *data;
+    read_image_data(source_path, &data, &width, &height, &channel_count);
+    R = data[3 * width];
+    G = data[3 * width + 1];
+    B = data[3 * width + 2];
 
-    printf("second_line: %d\n", pixel2);
+    printf("second_line: %d, %d, %d\n", R, G, B);
 }
 
+void color_red(char *source_path){
+    int width,height,channel_count;
+    unsigned char *data;
+
+    int result = read_image_data(source_path, &data, &width, &height, &channel_count);
+    if (result == 0) {
+        printf("Erreur lors de la lecture de l-image : %s\n", source_path);
+        return;
+    }
+    int i, total_pixels = width * height;
+    printf("nombre de pixel : %d\n", total_pixels);
+    for (i = 0; i < total_pixels; i++) {
+    
+         data[i * 3 + 1] = 0;
+         data[i * 3 + 2] = 0;
+       
+    }
+    write_image_data("image_out.bmp", data, width, height);
+
+    free(data);
+
+}
+
+void color_green (char *source_path){
+    int width,height,channel_count;
+    unsigned char *data;
+
+    int result = read_image_data(source_path, &data, &width, &height, &channel_count);
+    if (result == 0) {
+        printf("Erreur lors de la lecture de l-image : %s\n", source_path);
+        return;
+    }
+
+    int i, total_pixels = width * height;
+    for (i = 0; i < total_pixels; i++) {
+    
+         data[i * 3 ] = 0;
+         data[i * 3 + 2] = 0;
+       
+    }
+
+    write_image_data("image_out.bmp", data, width, height);
+
+    free(data);
+
+}
+
+void color_blue (char *source_path){
+    int width,height,channel_count;
+    unsigned char *data;
+
+    int result = read_image_data(source_path, &data, &width, &height, &channel_count);
+    if (result == 0) {
+        printf("Erreur lors de la lecture de l-image : %s\n", source_path);
+        return;
+    }
+
+    int i, total_pixels = width * height;
+    for (i = 0; i < total_pixels; i++) {
+    
+         data[i * 3 ] = 0;
+         data[i * 3 + 1] = 0;
+       
+    }
+
+    write_image_data("image_out.bmp", data, width, height);
+
+    free(data);
+
+}
+
+void color_gray (char *source_path){
+    int width,height,channel_count,R,G,B;
+    unsigned char *data;
+
+    int result = read_image_data(source_path, &data, &width, &height, &channel_count);
+    if (result == 0) {
+        printf("Erreur lors de la lecture de l-image : %s\n", source_path);
+        return;
+    }
+
+    int i, total_pixels = width * height;
+    for (i = 0; i < total_pixels; i++) {
+    
+         R = data[i * 3 ];
+         G = data[i * 3 + 1];
+         B = data[i * 3 + 2];
+
+         data[i * 3 ] = (R + G + B) / 3 ;
+         data[i * 3 + 1] = (R + G + B) / 3 ;
+         data[i * 3 + 2] = (R + G + B) / 3 ;
+       
+    }
+
+    write_image_data("image_out.bmp", data, width, height);
+
+    free(data);
+
+}
+
+void color_invert (char *source_path){
+    int width,height,channel_count,R,G,B;
+    unsigned char *data;
+
+    int result = read_image_data(source_path, &data, &width, &height, &channel_count);
+    if (result == 0) {
+        printf("Erreur lors de la lecture de l-image : %s\n", source_path);
+        return;
+    }
+
+    int i, total_pixels = width * height;
+    for (i = 0; i < total_pixels; i++) {
+    
+         R = data[i * 3 ];
+         G = data[i * 3 + 1];
+         B = data[i * 3 + 2];
+
+         data[i * 3 ] = 255 - R;
+         data[i * 3 + 1] = 255 - G;
+         data[i * 3 + 2] = 255 - B;
+       
+    }
+
+    write_image_data("image_out.bmp", data, width, height);
+
+    free(data);
+
+}
+
+void color_gray_lumi (char *source_path){
+    int width,height,channel_count,R,G,B,moy;
+    unsigned char *data;
+
+    int result = read_image_data(source_path, &data, &width, &height, &channel_count);
+    if (result == 0) {
+        printf("Erreur lors de la lecture de l-image : %s\n", source_path);
+        return;
+    }
+
+    int i, total_pixels = width * height;
+    for (i = 0; i < total_pixels; i++) {
+    
+         R = data[i * 3 ];
+         G = data[i * 3 + 1];
+         B = data[i * 3 + 2];
+
+         moy = (R * 0.21 + G * 0.72 + B * 0.07);
+
+        data[i * 3 ] = moy ;
+        data[i * 3 + 1] = moy ;
+        data[i * 3 + 2] =  moy ;
+       
+    }
+
+    write_image_data("image_out.bmp", data, width, height);
+
+    free(data);
+
+}
