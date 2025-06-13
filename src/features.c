@@ -103,3 +103,27 @@ void color_green (char *source_path){
     free(data);
 
 }
+
+void color_blue (char *source_path){
+    int width,height,channel_count;
+    unsigned char *data;
+
+    int result = read_image_data(source_path, &data, &width, &height, &channel_count);
+    if (result == 0) {
+        printf("Erreur lors de la lecture de l-image : %s\n", source_path);
+        return;
+    }
+
+    int i, total_pixels = width * height;
+    for (i = 0; i < total_pixels; i++) {
+    
+         data[i * 3 ] = 0;
+         data[i * 3 + 1] = 0;
+       
+    }
+
+    write_image_data("image_out.bmp", data, width, height);
+
+    free(data);
+
+}
