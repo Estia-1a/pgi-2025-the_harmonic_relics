@@ -203,11 +203,11 @@ void color_gray_lumi (char *source_path){
          G = data[i * 3 + 1];
          B = data[i * 3 + 2];
 
-         moy = (R * 0.21 + G * 0.72 + B * 0.07) / 3;
+         moy = (R * 0.21 + G * 0.72 + B * 0.07);
 
-         data[i * 3 ] = moy ;
-         data[i * 3 + 1] = moy ;
-         data[i * 3 + 2] = moy ;
+        data[i * 3 ] = moy ;
+        data[i * 3 + 1] = moy ;
+        data[i * 3 + 2] =  moy ;
        
     }
 
