@@ -216,7 +216,8 @@ void color_gray_lumi (char *source_path){
     free(data);
 
 }
-void max_pixel(Image *img) 
+
+/*void max_pixel(Image *img)
 {
     int max_sum = -1;
     int max_x = 0, max_y = 0;
@@ -263,3 +264,32 @@ void min_pixel(Image *img) {
     pixelRGB result = img->pixels[min_y * img->width + min_x];
     printf("min_pixel (%d, %d): %d, %d, %d\n", min_x, min_y, result.r, result.g, result.b);
 }
+
+ int main(int argc, char *argv[]) 
+  {
+    if (argc < 2) 
+    {
+        printf("Usage: %s <image_file>\n", argv[0]);
+        return 1;
+    }
+
+    const char *filename = argv[1];
+    Image img;
+
+    if (read_image_data(filename, &img) != 0) 
+    {
+        fprintf(stderr, "Erreur de chargement de l'image\n");
+        return 1;
+    }
+
+    max_pixel(&img);
+
+if (strcmp(command, "min_pixel") == 0) 
+{
+    min_pixel(&img);
+}
+
+  return 0;
+}*/
+
+
