@@ -8,4 +8,5 @@ void dimension (char *source_path);
 void first_pixel (char *source_path);
 void tenth_pixel (char *source_path);
 void rotate_cw (char *source_path);
+void rotate_acw (char *source_path);
 #endif
