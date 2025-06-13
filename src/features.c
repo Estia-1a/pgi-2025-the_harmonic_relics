@@ -186,4 +186,33 @@ void color_invert (char *source_path){
 
 }
 
+void color_gray_lumi (char *source_path){
+    int width,height,channel_count,R,G,B,moy;
+    unsigned char *data;
 
+    int result = read_image_data(source_path, &data, &width, &height, &channel_count);
+    if (result == 0) {
+        printf("Erreur lors de la lecture de l-image : %s\n", source_path);
+        return;
+    }
+
+    int i, total_pixels = width * height;
+    for (i = 0; i < total_pixels; i++) {
+    
+         R = data[i * 3 ];
+         G = data[i * 3 + 1];
+         B = data[i * 3 + 2];
+
+         moy = (R * 0.21 + G * 0.72 + B * 0.07) / 3;
+
+         data[i * 3 ] = moy ;
+         data[i * 3 + 1] = moy ;
+         data[i * 3 + 2] = moy ;
+       
+    }
+
+    write_image_data("image_out.bmp", data, width, height);
+
+    free(data);
+
+}
