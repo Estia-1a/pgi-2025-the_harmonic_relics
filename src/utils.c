@@ -7,3 +7,7 @@
  * 
  */
 
+main.c
+min_pixel.c
+include/
+estia-image.h
