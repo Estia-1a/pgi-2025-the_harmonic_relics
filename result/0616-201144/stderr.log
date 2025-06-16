@@ -1,0 +1,60 @@
+/home/runner/work/pgi-2025-the_harmonic_relics/pgi-2025-the_harmonic_relics/src/features.c: In function ‘color_red’:
+/home/runner/work/pgi-2025-the_harmonic_relics/pgi-2025-the_harmonic_relics/src/features.c:260:5: error: ‘R’ undeclared (first use in this function)
+  260 |     R=data[0];
+      |     ^
+/home/runner/work/pgi-2025-the_harmonic_relics/pgi-2025-the_harmonic_relics/src/features.c:260:5: note: each undeclared identifier is reported only once for each function it appears in
+/home/runner/work/pgi-2025-the_harmonic_relics/pgi-2025-the_harmonic_relics/src/features.c:261:5: error: ‘G’ undeclared (first use in this function)
+  261 |     G=data[1];
+      |     ^
+/home/runner/work/pgi-2025-the_harmonic_relics/pgi-2025-the_harmonic_relics/src/features.c:262:5: error: ‘B’ undeclared (first use in this function)
+  262 |     B=data[2];
+      |     ^
+/home/runner/work/pgi-2025-the_harmonic_relics/pgi-2025-the_harmonic_relics/src/features.c: At top level:
+/home/runner/work/pgi-2025-the_harmonic_relics/pgi-2025-the_harmonic_relics/src/features.c:266:6: error: redefinition of ‘tenth_pixel’
+  266 | void tenth_pixel (char *source_path){
+      |      ^~~~~~~~~~~
+/home/runner/work/pgi-2025-the_harmonic_relics/pgi-2025-the_harmonic_relics/src/features.c:60:6: note: previous definition of ‘tenth_pixel’ with type ‘void(char *)’
+   60 | void tenth_pixel(char *source_path) {
+      |      ^~~~~~~~~~~
+/home/runner/work/pgi-2025-the_harmonic_relics/pgi-2025-the_harmonic_relics/src/features.c:279:6: error: redefinition of ‘color_desaturate’
+  279 | void color_desaturate(char *source_path) {
+      |      ^~~~~~~~~~~~~~~~
+/home/runner/work/pgi-2025-the_harmonic_relics/pgi-2025-the_harmonic_relics/src/features.c:78:6: note: previous definition of ‘color_desaturate’ with type ‘void(char *)’
+   78 | void color_desaturate(char *source_path) {
+      |      ^~~~~~~~~~~~~~~~
+/home/runner/work/pgi-2025-the_harmonic_relics/pgi-2025-the_harmonic_relics/src/features.c:332:6: error: redefinition of ‘rotate_cw’
+  332 | void rotate_cw(char *source_path) {
+      |      ^~~~~~~~~
+/home/runner/work/pgi-2025-the_harmonic_relics/pgi-2025-the_harmonic_relics/src/features.c:131:6: note: previous definition of ‘rotate_cw’ with type ‘void(char *)’
+  131 | void rotate_cw(char *source_path) {
+      |      ^~~~~~~~~
+/home/runner/work/pgi-2025-the_harmonic_relics/pgi-2025-the_harmonic_relics/src/features.c:371:6: error: redefinition of ‘rotate_acw’
+  371 | void rotate_acw(char *source_path) {
+      |      ^~~~~~~~~~
+/home/runner/work/pgi-2025-the_harmonic_relics/pgi-2025-the_harmonic_relics/src/features.c:170:6: note: previous definition of ‘rotate_acw’ with type ‘void(char *)’
+  170 | void rotate_acw(char *source_path) {
+      |      ^~~~~~~~~~
+/home/runner/work/pgi-2025-the_harmonic_relics/pgi-2025-the_harmonic_relics/src/features.c:409:6: error: redefinition of ‘mirror_total’
+  409 | void mirror_total(char *source_path) {
+      |      ^~~~~~~~~~~~
+/home/runner/work/pgi-2025-the_harmonic_relics/pgi-2025-the_harmonic_relics/src/features.c:208:6: note: previous definition of ‘mirror_total’ with type ‘void(char *)’
+  208 | void mirror_total(char *source_path) {
+      |      ^~~~~~~~~~~~
+/home/runner/work/pgi-2025-the_harmonic_relics/pgi-2025-the_harmonic_relics/src/features.c:445:6: error: redefinition of ‘second_line’
+  445 | void second_line(char *source_path){
+      |      ^~~~~~~~~~~
+/home/runner/work/pgi-2025-the_harmonic_relics/pgi-2025-the_harmonic_relics/src/features.c:244:6: note: previous definition of ‘second_line’ with type ‘void(char *)’
+  244 | void second_line(char *source_path){
+      |      ^~~~~~~~~~~
+/home/runner/work/pgi-2025-the_harmonic_relics/pgi-2025-the_harmonic_relics/src/features.c:457:6: error: redefinition of ‘color_red’
+  457 | void color_red(char *source_path){
+      |      ^~~~~~~~~
+/home/runner/work/pgi-2025-the_harmonic_relics/pgi-2025-the_harmonic_relics/src/features.c:256:6: note: previous definition of ‘color_red’ with type ‘void(char *)’
+  256 | void color_red(char *source_path){
+      |      ^~~~~~~~~
+gmake[2]: *** [CMakeFiles/freud.dir/build.make:93: CMakeFiles/freud.dir/src/features.c.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[1]: *** [CMakeFiles/Makefile2:87: CMakeFiles/freud.dir/all] Error 2
+gmake: *** [Makefile:136: all] Error 2
+
+The process '/usr/local/bin/cmake' failed with exit code 2
