@@ -1,0 +1,16 @@
+/home/runner/work/pgi-2025-the_harmonic_relics/pgi-2025-the_harmonic_relics/src/features.c: In function ‘second_line’:
+/home/runner/work/pgi-2025-the_harmonic_relics/pgi-2025-the_harmonic_relics/src/features.c:52:15: error: conflicting types for ‘pixel2’; have ‘pixelRGB *’ {aka ‘struct _pixelRGB *’}
+   52 |     pixelRGB* pixel2 = getPixel(2, 0);
+      |               ^~~~~~
+/home/runner/work/pgi-2025-the_harmonic_relics/pgi-2025-the_harmonic_relics/src/features.c:49:9: note: previous declaration of ‘pixel2’ with type ‘int’
+   49 |     int pixel2;
+      |         ^~~~~~
+/home/runner/work/pgi-2025-the_harmonic_relics/pgi-2025-the_harmonic_relics/src/features.c:52:24: warning: implicit declaration of function ‘getPixel’ [-Wimplicit-function-declaration]
+   52 |     pixelRGB* pixel2 = getPixel(2, 0);
+      |                        ^~~~~~~~
+gmake[2]: *** [CMakeFiles/freud.dir/build.make:93: CMakeFiles/freud.dir/src/features.c.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[1]: *** [CMakeFiles/Makefile2:87: CMakeFiles/freud.dir/all] Error 2
+gmake: *** [Makefile:136: all] Error 2
+
+The process '/usr/local/bin/cmake' failed with exit code 2
